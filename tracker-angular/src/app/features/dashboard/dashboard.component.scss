@@ -1,0 +1,59 @@
+:host {
+  display: block;
+  height: 100vh; /* full page */
+  background-color: #f9fafb; // light gray
+  box-sizing: border-box;
+}
+
+/* Responsive grid */
+.dashboard-grid {
+  display: grid;
+  gap: 16px;
+  height: 100%;
+  grid-template-columns: 1fr; /* mobile: 1 col */
+  grid-auto-rows: minmax(200px, auto); /* flexible height */
+
+  @media (min-width: 640px) { /* tablet */
+    grid-template-columns: 1fr 1fr;
+  }
+
+  @media (min-width: 1024px) { /* desktop */
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  @media (min-width: 1280px) { /* large desktop */
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* Cards layout */
+.dashboard-card {
+  display: block;
+  height: 100%;
+  width: 100%;
+
+  /* smooth entrance animation */
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.6s ease forwards;
+
+  /* small stagger effect per card */
+  &:nth-child(1) { animation-delay: 0.1s; }
+  &:nth-child(2) { animation-delay: 0.2s; }
+  &:nth-child(3) { animation-delay: 0.3s; }
+  &:nth-child(4) { animation-delay: 0.4s; }
+  &:nth-child(5) { animation-delay: 0.5s; }
+  &:nth-child(6) { animation-delay: 0.6s; }
+}
+
+/* keyframe animation */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

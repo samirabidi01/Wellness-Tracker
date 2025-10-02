@@ -1,1 +1,15 @@
-<p>dashboard works!</p>
+<app-layout>
+  <!-- Top grid -->
+  <div class="dashboard-grid top-grid">
+    <app-water-card class="dashboard-card"></app-water-card>
+    <app-sleep-card class="dashboard-card"></app-sleep-card>
+    <app-steps-card class="dashboard-card"></app-steps-card>
+    <app-moods-card class="dashboard-card"></app-moods-card>
+  </div>
+
+  <!-- Bottom grid -->
+  <div class="dashboard-grid bottom-grid">
+    <app-meals-card class="dashboard-card"></app-meals-card>
+    <app-exercices-card class="dashboard-card"></app-exercices-card>
+  </div>
+</app-layout>
