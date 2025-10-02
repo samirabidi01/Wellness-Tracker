@@ -1,1 +1,37 @@
-<p>goals-card works!</p>
+<mat-card class="goals-card">
+  <h1 class="title">Your Goals & Progress</h1>
+
+  <!-- Cigarettes -->
+  <section class="goal-section">
+    <h2>Cigarette Goal</h2>
+    <p>{{ data.cigs }}/{{ data.cigGoal }} today</p>
+    <mat-progress-bar mode="determinate" [value]="cigProgress" color="accent"></mat-progress-bar>
+  </section>
+
+  <!-- Exercise -->
+  <section class="goal-section">
+    <h2>Exercise Streak</h2>
+    <p>{{ data.exerciseStreak }} days</p>
+    <mat-progress-bar mode="determinate" [value]="exerciseProgress" color="primary"></mat-progress-bar>
+  </section>
+
+  <!-- Mood -->
+  <section class="goal-section">
+    <h2>Mood Streak</h2>
+    <p>{{ data.moodStreak }} days</p>
+    <mat-progress-bar mode="determinate" [value]="moodProgress" color="warn"></mat-progress-bar>
+  </section>
+
+  <!-- Badges -->
+  <section class="badges">
+    <h2>Your Badges</h2>
+    <div class="badges-list">
+      <ng-container *ngIf="badges.length > 0; else noBadges">
+        <span *ngFor="let badge of badges" class="badge">{{ badge }}</span>
+      </ng-container>
+      <ng-template #noBadges>
+        <p>No badges yet — keep going!</p>
+      </ng-template>
+    </div>
+  </section>
+</mat-card>
