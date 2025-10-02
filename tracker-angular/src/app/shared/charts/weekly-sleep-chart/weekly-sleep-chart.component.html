@@ -1,1 +1,10 @@
-<p>weekly-sleep-chart works!</p>
+<div class="chart-card">
+  <canvasjs-chart
+    [options]="chartOptions"
+    [styles]="{ width: '100%', height: '360px' }">
+  </canvasjs-chart>
+
+  <p class="recommended-text">
+    Recommended: {{ minRecommended }}–{{ maxRecommended }} hours of sleep per night 💤
+  </p>
+</div>
