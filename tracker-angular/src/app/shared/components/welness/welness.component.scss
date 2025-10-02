@@ -1,0 +1,93 @@
+:host {
+  display: block;
+  padding: 1rem;
+}
+
+/* grid layout */
+.grid-root {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: 1fr;
+
+  @media (min-width: 1024px) {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.card {
+  border-radius: 16px;
+  padding: 0;
+  min-height: 180px;
+  background: #ffffff; /* ✅ white background */
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.06);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.1);
+  }
+
+  .title {
+    font-weight: 700;
+    color: #1a202c; /* darker gray */
+    font-size: 1.25rem;
+    letter-spacing: 0.3px;
+  }
+}
+
+/* Quit Smoking Card */
+.quit-card {
+  border: 2px solid #fca5a5; /* soft red border */
+  
+  .status {
+    color: #4a5568;
+    margin-bottom: 0.75rem;
+    font-size: 0.95rem;
+  }
+
+  .actions {
+    display: flex;
+    gap: 0.75rem;
+    margin-bottom: 0.75rem;
+
+    button {
+      flex: 1;
+      font-weight: 600;
+      border-radius: 8px;
+    }
+  }
+
+  .hint {
+    font-size: 0.9rem;
+    color: #b91c1c; /* stronger red */
+    font-style: italic;
+    margin-top: 0.5rem;
+  }
+}
+
+/* Progress Card */
+.progress-card {
+  border: 2px solid #6ee7b7; /* soft green border */
+
+  .progress-list {
+    margin-top: 0.75rem;
+    list-style: none;
+    padding-left: 0;
+
+    li {
+      color: #2d3748;
+      margin: 0.35rem 0;
+      padding: 0.4rem 0.6rem;
+      border-radius: 8px;
+      background: #f9fafb; /* light gray tag background */
+      font-size: 0.95rem;
+    }
+  }
+
+  .no-progress {
+    margin-top: 0.75rem;
+    color: #718096;
+    font-style: italic;
+    font-size: 0.9rem;
+  }
+}

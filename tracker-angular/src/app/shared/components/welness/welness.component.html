@@ -1,1 +1,43 @@
-<p>welness works!</p>
+<div class="grid-root">
+  <mat-card class="card quit-card" appearance="outlined">
+    <mat-card-header>
+      <mat-card-title class="title">🚭 Quit Smoking</mat-card-title>
+    </mat-card-header>
+
+    <mat-card-content>
+      <p class="status">Today: <strong>{{ cigs }}</strong> cigarettes (Goal: {{ cigGoal }})</p>
+
+      <div class="actions">
+        <button mat-raised-button color="warn" (click)="incrementCig()">+1 Cigarette</button>
+        <button mat-raised-button color="primary" (click)="decrementCig()">-1 Cigarette</button>
+      </div>
+
+      <p class="hint" *ngIf="cigs === 0; else keepReducing">
+        Great! Day without smoking – your lungs are already healing! 💪
+      </p>
+      <ng-template #keepReducing>
+        <p class="hint">Keep reducing step by step – you’re stronger than your cravings.</p>
+      </ng-template>
+    </mat-card-content>
+  </mat-card>
+
+  <mat-card class="card progress-card" appearance="outlined">
+    <mat-card-header>
+      <mat-card-title class="title">⚖️ Weight Loss Progress</mat-card-title>
+    </mat-card-header>
+
+    <mat-card-content>
+      <div>
+        <button mat-raised-button color="primary" (click)="addWeeklyProgress()">Add Weekly Progress</button>
+      </div>
+
+      <ul class="progress-list" *ngIf="progress?.length; else noProgress">
+        <li *ngFor="let entry of progress">Week {{ entry.week }}: Lost {{ entry.weightLost }} kg 🎉</li>
+      </ul>
+
+      <ng-template #noProgress>
+        <p class="no-progress">No progress yet.</p>
+      </ng-template>
+    </mat-card-content>
+  </mat-card>
+</div>
