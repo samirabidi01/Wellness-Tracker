@@ -1,1 +1,42 @@
-<p>layout works!</p>
+<div class="layout-container">
+  <!-- Sidebar -->
+  <div class="sidebar" [class.collapsed]="collapsed">
+    <div class="logo-toggle">
+      <span class="logo" *ngIf="!collapsed">Tracker-health</span>
+      <mat-icon class="toggle" (click)="toggleSidebar()">menu</mat-icon>
+    </div>
+
+    <!-- Nav Links -->
+    <nav>
+      <a
+        *ngFor="let item of navigation"
+        [routerLink]="item.path"
+        routerLinkActive="active"
+        class="nav-link"
+      >
+        <mat-icon>{{ item.icon }}</mat-icon>
+        <span *ngIf="!collapsed">{{ item.name }}</span>
+      </a>
+    </nav>
+  </div>
+
+  <!-- Main content -->
+  <div class="main-content">
+    <!-- Navbar -->
+    <div class="navbar">
+      <div class="navbar-right">
+        <mat-icon>notifications</mat-icon>
+        <img
+          src="https://i.pravatar.cc/150?img=3"
+          alt="user"
+          class="avatar"
+        />
+      </div>
+    </div>
+
+    <!-- Page content -->
+    <div class="content">
+      <ng-content></ng-content>
+    </div>
+  </div>
+</div>
