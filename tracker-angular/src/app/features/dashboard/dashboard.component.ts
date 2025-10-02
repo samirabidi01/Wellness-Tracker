@@ -7,7 +7,7 @@ import { StepsCardComponent } from '../../shared/components/steps-card/steps-car
 import { MoodsCardComponent } from '../../shared/components/moods-card/moods-card.component'; 
 import { MealsCardComponent } from '../../shared/components/meals-card/meals-card.component'; 
 import { ExercicesCardComponent } from '../../shared/components/exercices-card/exercices-card.component'; 
-import { LayoutComponent } 
+import { LayoutComponent } from '../../shared/components/layout/layout.component'; 
 @Component({
   selector: 'app-dashboard',
   standalone: true, 
@@ -23,8 +23,8 @@ import { LayoutComponent }
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.scss']
 })
-export class DashboardComponent {
+export class DashboardComponent  {
   isSmallScreen() {
-    return window.innerWidth < 768;
+    return window.innerWidth < 768
   }
 }
