@@ -1,1 +1,52 @@
-<p>daily-goal-progress works!</p>
+<mat-card class="daily-goal-card">
+  <h2 class="title">Goal progress</h2>
+  <p class="subtitle">You're progressing towards your daily goals.</p>
+
+  <!-- Circular progress -->
+  <div class="progress-wrapper">
+    <svg class="progress-circle" viewBox="0 0 36 36">
+      <defs>
+        <linearGradient id="gradient" gradientTransform="rotate(90)">
+          <stop offset="0%" stop-color="#a78bfa"/>
+          <stop offset="100%" stop-color="#6366f1"/>
+        </linearGradient>
+      </defs>
+
+      <!-- Background circle -->
+      <path
+        class="circle-bg"
+        d="M18 2.0845
+           a 15.9155 15.9155 0 0 1 0 31.831
+           a 15.9155 15.9155 0 0 1 0 -31.831"
+        fill="none"
+        stroke="#e5e7eb"
+        stroke-width="3.8"/>
+      <!-- Progress circle -->
+      <path
+        class="circle"
+        d="M18 2.0845
+           a 15.9155 15.9155 0 0 1 0 31.831
+           a 15.9155 15.9155 0 0 1 0 -31.831"
+        fill="none"
+        [attr.stroke-dasharray]="totalProgress + ', 100'"
+        stroke="url(#gradient)"
+        stroke-width="3.8"
+        stroke-linecap="round"/>
+    </svg>
+    <div class="progress-text">
+      <div class="percent">{{ totalProgress }}%</div>
+      <p class="desc">Of the total goal chart <br/> completed.</p>
+    </div>
+  </div>
+
+  <!-- Categories -->
+  <div class="categories">
+    <div class="category" *ngFor="let cat of categories">
+      <div class="icon" [ngStyle]="{'background-color': cat.color + '20', 'color': cat.color}">
+        {{ cat.icon }}
+      </div>
+      <span class="value">{{ cat.value }}%</span>
+      <span class="label">{{ cat.label }}</span>
+    </div>
+  </div>
+</mat-card>
