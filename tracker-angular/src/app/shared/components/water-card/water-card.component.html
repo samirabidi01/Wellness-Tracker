@@ -1,1 +1,38 @@
-<p>water-card works!</p>
+<mat-card class="water-card">
+  <mat-card-header>
+    <mat-card-title>💧 Water Intake</mat-card-title>
+    <mat-card-subtitle *ngIf="streak > 0">🔥 {{ streak }}-day streak</mat-card-subtitle>
+  </mat-card-header>
+
+  <mat-card-content>
+    <div class="progress-container">
+      <div class="circle">
+        <svg viewBox="0 0 36 36">
+          <path d="M18 2a16 16 0 1 0 0 32a16 16 0 1 0 0-32" fill="none" stroke="#eef2f7" stroke-width="4"/>
+          <path d="M18 2a16 16 0 1 0 0 32a16 16 0 1 0 0-32"
+            fill="none" stroke="#0ea5e9" stroke-width="4" stroke-linecap="round"
+            [attr.stroke-dasharray]="waterPct + ' ' + (100 - waterPct)" stroke-dashoffset="25"/>
+        </svg>
+        <div class="circle-label">
+          <div class="value">{{ water }}</div>
+          <div class="goal">/ {{ waterGoal }}</div>
+        </div>
+      </div>
+
+      <div class="add-btn">
+        <button mat-raised-button color="primary" (click)="addGlass()">+</button>
+        <div class="label">glasses</div>
+      </div>
+    </div>
+
+    <div class="achievements">
+      <h4>Achievements</h4>
+      <ul>
+        <li *ngFor="let a of unlockedAchievements">{{ a.label }}</li>
+        <li *ngIf="unlockedAchievements.length === 0">No badges yet, keep sipping! 💧</li>
+      </ul>
+    </div>
+
+    <p class="fact">{{ facts[factIndex] }}</p>
+  </mat-card-content>
+</mat-card>
