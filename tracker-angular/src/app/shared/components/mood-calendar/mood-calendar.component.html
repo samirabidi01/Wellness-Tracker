@@ -1,1 +1,17 @@
-<p>mood-calendar works!</p>
+<mat-card class="mood-calendar">
+  <h4 class="title">Mood Calendar</h4>
+
+  <div class="calendar-grid">
+    <div
+      *ngFor="let day of days"
+      class="day-cell"
+      [ngClass]="[
+        getMoodForDay(day)?.color || 'default',
+        isToday(day) ? 'today' : ''
+      ]"
+      [attr.title]="getMoodForDay(day)?.label || 'No mood logged'"
+    >
+      {{ getDayLabel(day, getMoodForDay(day)) }}
+    </div>
+  </div>
+</mat-card>
