@@ -1,1 +1,45 @@
-<p>sleep-card works!</p>
+<mat-card class="sleep-card">
+  <!-- Header -->
+  <mat-card-header>
+    <mat-card-title>
+      <div class="header">
+        <div class="title">
+          <mat-icon color="primary">nights_stay</mat-icon>
+          <span>Sleep</span>
+        </div>
+        <span class="streak">🔥 {{ streak }}-day streak</span>
+      </div>
+    </mat-card-title>
+  </mat-card-header>
+
+  <!-- Content -->
+  <mat-card-content>
+    <!-- Hours -->
+    <div class="sleep-amount">
+      {{ sleep }}h <span class="last-night">Last night</span>
+    </div>
+
+    <!-- Progress bar -->
+    <mat-progress-bar
+      mode="determinate"
+      [value]="sleepPct"
+      class="progress"
+    ></mat-progress-bar>
+
+    <!-- Status -->
+    <div class="status">
+      Goal: {{ sleepGoal }}h ({{ sleepPct }}%) <br />
+      <span *ngIf="sleep >= 7 && sleep <= 9" class="good">✅ You're in the healthy range!</span>
+      <span *ngIf="sleep < 7 || sleep > 9" class="warn">⚠️ Try to aim for 7–9h.</span>
+    </div>
+
+    <!-- Controls -->
+    <div class="actions">
+      <button mat-stroked-button color="primary" (click)="increaseSleep()">+0.5h</button>
+      <button mat-stroked-button color="warn" (click)="decreaseSleep()">-0.5h</button>
+    </div>
+
+    <!-- Tip -->
+    <div class="tip">💡 Tip: {{ tip }}</div>
+  </mat-card-content>
+</mat-card>
