@@ -1,1 +1,33 @@
-<p>moods-card works!</p>
+<mat-card class="moods-card">
+  <div class="header">
+    <h3>Mood Today</h3>
+  </div>
+
+  <!-- Current Mood -->
+  <div class="current-mood" *ngIf="currentMood">
+    <div class="emoji">{{ currentMood.emoji }}</div>
+    <div class="label">{{ currentMood.label }}</div>
+  </div>
+
+  <!-- Mood buttons -->
+  <div class="mood-buttons">
+    <button
+      mat-fab
+      *ngFor="let m of moods"
+      (click)="handleMoodClick(m.key)"
+      [ngClass]="{ active: m.key === mood }">
+      {{ m.emoji }}
+    </button>
+  </div>
+
+  <!-- Journal -->
+  <mat-form-field appearance="outline" class="journal">
+    <mat-label>Journal</mat-label>
+    <textarea matInput [(ngModel)]="journal" (ngModelChange)="handleJournalChange($event)"></textarea>
+  </mat-form-field>
+
+  <!-- Streak -->
+  <div class="streak">
+    <span class="highlight">🔥 {{ streak }} days</span>
+  </div>
+</mat-card>
