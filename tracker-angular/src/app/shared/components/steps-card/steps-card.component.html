@@ -1,1 +1,35 @@
-<p>steps-card works!</p>
+<mat-card class="steps-card">
+  <mat-card-header>
+    <mat-card-title>
+      <div class="header">
+        <span>🚶 Steps</span>
+        <span class="streak">🔥 {{ streak }}-day streak</span>
+      </div>
+    </mat-card-title>
+  </mat-card-header>
+
+  <mat-card-content>
+    <div class="steps-count">{{ steps | number }}</div>
+
+    <mat-progress-bar
+      mode="determinate"
+      [value]="stepsPct"
+      class="progress"
+    ></mat-progress-bar>
+
+    <div class="goal">Goal: {{ stepsGoal | number }} ({{ stepsPct }}%)</div>
+
+    <div class="actions">
+      <button mat-stroked-button color="primary" (click)="handleAddSteps()">
+        +500 steps
+      </button>
+      <button mat-stroked-button color="warn" (click)="handleDailyReset()">
+        Reset (Daily)
+      </button>
+    </div>
+
+    <div class="tip">
+      💡 Tip: {{ tip || 'Click +500 to see a random tip!' }}
+    </div>
+  </mat-card-content>
+</mat-card>

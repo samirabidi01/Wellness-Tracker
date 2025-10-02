@@ -1,0 +1,49 @@
+.steps-card {
+  border-radius: 1rem;
+  padding: 1rem;
+  background-color: white;
+
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .streak {
+      font-size: 0.9rem;
+      color: #f97316;
+      font-weight: 500;
+    }
+  }
+
+  .steps-count {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-top: 0.5rem;
+  }
+
+  .progress {
+    margin: 1rem 0;
+    height: 8px;
+    border-radius: 9999px;
+  }
+
+  .goal {
+    font-size: 0.85rem;
+    color: #6b7280;
+  }
+
+  .actions {
+    display: flex;
+    gap: 0.5rem;
+    margin-top: 1rem;
+  }
+
+  .tip {
+    margin-top: 1rem;
+    padding: 0.75rem;
+    font-size: 0.9rem;
+    border-radius: 0.5rem;
+    background: #fff7ed;
+    color: #c2410c;
+  }
+}
