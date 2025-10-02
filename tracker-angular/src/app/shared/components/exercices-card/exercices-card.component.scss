@@ -1,0 +1,94 @@
+.exercices-card {
+  border-radius: 16px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: white;
+
+  .header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 16px;
+
+    h3 {
+      font-weight: 500;
+      margin: 0;
+    }
+  }
+
+  .exercise-card {
+    background-color: #e0f2fe; // sky-100
+    padding: 16px;
+    border-radius: 12px;
+    margin-bottom: 16px;
+
+    h4 {
+      font-weight: 600;
+      margin: 0;
+    }
+
+    p {
+      margin-top: 8px;
+      color: #475569; // slate-600
+    }
+
+    .timer {
+      margin-top: 8px;
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: #f97316; // orange-500
+    }
+  }
+
+  .streak {
+    font-size: 0.9rem;
+    color: #6b7280; // slate-500
+    margin-bottom: 12px;
+
+    span {
+      font-weight: 600;
+      color: #f97316; // orange-500
+    }
+  }
+
+  .history {
+    margin-top: 12px;
+    max-height: 120px;
+    overflow-y: auto;
+
+    h4 {
+      font-size: 0.9rem;
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+
+    ul {
+      font-size: 0.8rem;
+      color: #64748b; // slate-500
+      list-style: none;
+      padding-left: 0;
+
+      li {
+        margin-bottom: 4px;
+      }
+    }
+  }
+
+  .actions {
+    display: flex;
+    gap: 12px;
+    margin-top: 16px;
+
+    button {
+      flex: 1;
+    }
+  }
+}
+
+/* Snackbar custom style */
+.snackbar-success {
+  background-color: #4caf50; /* green */
+  color: #fff;
+}
