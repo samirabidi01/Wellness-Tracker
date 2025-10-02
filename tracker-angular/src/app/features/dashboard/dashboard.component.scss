@@ -1,43 +1,51 @@
 :host {
   display: block;
-  height: 100vh; /* full page */
-  background-color: #f9fafb; // light gray
+  height: 100vh;
+  background-color: #f9fafb;
   box-sizing: border-box;
+  padding: 1rem;
 }
 
-/* Responsive grid */
-.dashboard-grid {
+/* Container takes full height */
+.dashboard-container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  gap: 24px; /* padding/space between top & bottom grid */
+}
+
+/* Meals + Exercices grid (top area) */
+.bottom-grid {
+  flex: 2; /* larger area */
   display: grid;
   gap: 16px;
-  height: 100%;
-  grid-template-columns: 1fr; /* mobile: 1 col */
-  grid-auto-rows: minmax(200px, auto); /* flexible height */
-
-  @media (min-width: 640px) { /* tablet */
-    grid-template-columns: 1fr 1fr;
-  }
-
-  @media (min-width: 1024px) { /* desktop */
-    grid-template-columns: repeat(3, 1fr);
-  }
-
-  @media (min-width: 1280px) { /* large desktop */
-    grid-template-columns: repeat(4, 1fr);
-  }
+  grid-template-columns: 1fr 1fr;
+  grid-auto-rows: 1fr; /* force equal height */
 }
 
-/* Cards layout */
+/* Water, Sleep, Steps, Moods grid (bottom area) */
+.top-grid {
+  flex: 1; /* smaller area */
+  display: grid;
+  gap: 16px;
+  grid-template-columns: repeat(4, 1fr);
+  grid-auto-rows: 1fr; /* force equal height */
+}
+
+/* Cards */
 .dashboard-card {
   display: block;
-  height: 100%;
   width: 100%;
+  height: 100%; /* always stretch */
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
 
-  /* smooth entrance animation */
+  /* Animation */
   opacity: 0;
   transform: translateY(20px);
   animation: fadeInUp 0.6s ease forwards;
 
-  /* small stagger effect per card */
   &:nth-child(1) { animation-delay: 0.1s; }
   &:nth-child(2) { animation-delay: 0.2s; }
   &:nth-child(3) { animation-delay: 0.3s; }
@@ -46,7 +54,7 @@
   &:nth-child(6) { animation-delay: 0.6s; }
 }
 
-/* keyframe animation */
+/* Animation keyframes */
 @keyframes fadeInUp {
   from {
     opacity: 0;

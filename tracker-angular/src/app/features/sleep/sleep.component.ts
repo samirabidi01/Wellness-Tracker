@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { SleepCardComponent } from '../../shared/components/sleep-card/sleep-card.component'; 
-import { WeeklySleepChartComponent } from '../../shared/charts/weekly-sleep-chart/weekly-sleep-chart.component'; 
-import { LayoutComponent } from '../../shared/components/layout/layout.component'; 
+import { SleepCardComponent } from '../../components/sleep-card/sleep-card.component'; 
+import { WeeklySleepChartComponent } from '../../components/charts/weekly-sleep-chart/weekly-sleep-chart.component';
+import { LayoutComponent } from '../../components/layout/layout.component';
 
 @Component({
   selector: 'app-sleep',
