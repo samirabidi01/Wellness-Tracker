@@ -1,0 +1,51 @@
+.meals-card {
+  border-radius: 16px;
+  padding: 16px;
+  background-color: white;
+
+  .header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 12px;
+
+    .title {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+
+      h3 {
+        font-weight: 500;
+        margin: 0;
+      }
+    }
+  }
+
+  .meals-list {
+    .meal {
+      display: flex;
+      justify-content: space-between;
+      padding: 8px 0;
+      border-bottom: 1px solid #f1f1f1;
+
+      &:last-child {
+        border-bottom: none;
+      }
+
+      .meal-name {
+        font-weight: 500;
+        text-transform: capitalize;
+      }
+
+      .meal-value {
+        color: #6b7280; // gray-500
+      }
+    }
+  }
+
+  .action {
+    margin-top: 16px;
+    button {
+      width: 100%;
+    }
+  }
+}

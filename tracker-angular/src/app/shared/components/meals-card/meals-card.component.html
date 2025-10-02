@@ -1,1 +1,23 @@
-<p>meals-card works!</p>
+<mat-card class="meals-card">
+  <div class="header">
+    <div class="title">
+      <mat-icon color="primary">restaurant</mat-icon>
+      <h3>Today's Meals</h3>
+    </div>
+  </div>
+
+  <mat-divider></mat-divider>
+
+  <div class="meals-list">
+    <div class="meal" *ngFor="let meal of ['breakfast','lunch','dinner','snacks']">
+      <span class="meal-name">{{ meal | titlecase }}</span>
+      <span class="meal-value">{{ meals[meal] || 'Not planned yet' }}</span>
+    </div>
+  </div>
+
+  <div class="action">
+    <button mat-raised-button color="primary" routerLink="/meals">
+      Plan Meals
+    </button>
+  </div>
+</mat-card>
